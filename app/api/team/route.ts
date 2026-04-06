@@ -2,9 +2,7 @@ import { NextRequest } from "next/server"
 import { getAuthUser } from "@/lib/supabase/server"
 import { prisma } from "@/lib/prisma"
 import { z } from "zod"
-import { Resend } from "resend"
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import { getResend } from "@/lib/resend"
 
 const inviteSchema = z.object({
   email: z.string().email(),
@@ -86,7 +84,7 @@ export async function POST(req: NextRequest) {
 
     // Send invite email
     if (process.env.RESEND_API_KEY) {
-      await resend.emails.send({
+      await getResend().emails.send({
         from: process.env.RESEND_FROM_EMAIL ?? "noreply@zenia.ai",
         to: email,
         subject: `You've been invited to ${workspace.name} on Zenia`,
