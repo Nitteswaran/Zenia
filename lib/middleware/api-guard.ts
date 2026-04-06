@@ -31,14 +31,16 @@ export interface GuardedContext {
 type GuardedHandler<P = Record<string, never>> = (
   req: NextRequest,
   ctx: GuardedContext,
-  params?: P
+  params: P
 ) => Promise<Response>
+
+type RouteContext<P> = { params: P }
 
 export function withApiGuard<P = Record<string, never>>(
   handler: GuardedHandler<P>,
   opts: { skipRateLimit?: boolean } = {}
 ) {
-  return async (req: NextRequest, params?: P): Promise<Response> => {
+  return async (req: NextRequest, context: RouteContext<P>): Promise<Response> => {
     const start = Date.now()
     const requestId = crypto.randomUUID()
 
@@ -82,7 +84,7 @@ export function withApiGuard<P = Record<string, never>>(
       }
 
       // ── Handler ─────────────────────────────────────────────────────────────
-      const response = await handler(req, { workspace, userId: dbUser!.id, requestId }, params)
+      const response = await handler(req, { workspace, userId: dbUser!.id, requestId }, context.params)
 
       // Add request ID and timing to all successful responses
       response.headers.set("X-Request-Id", requestId)

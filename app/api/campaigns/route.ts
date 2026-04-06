@@ -5,7 +5,7 @@ import { withApiGuard } from "@/lib/middleware/api-guard"
 import { PLAN_LIMITS } from "@/lib/plan-limits"
 import type { Plan } from "@prisma/client"
 
-export const GET = withApiGuard(async (_req, { workspace }) => {
+const guardedGET = withApiGuard(async (_req, { workspace }) => {
   const campaigns = await prisma.campaign.findMany({
     where: { workspaceId: workspace.id },
     orderBy: { createdAt: "desc" },
@@ -17,7 +17,7 @@ export const GET = withApiGuard(async (_req, { workspace }) => {
   return Response.json(campaigns)
 })
 
-export const POST = withApiGuard(async (req: NextRequest, { workspace }) => {
+const guardedPOST = withApiGuard(async (req: NextRequest, { workspace }) => {
   const plan = workspace.plan as Plan
   const limit = PLAN_LIMITS[plan].campaigns
   if (limit !== -1) {
@@ -48,3 +48,11 @@ export const POST = withApiGuard(async (req: NextRequest, { workspace }) => {
   })
   return Response.json(campaign, { status: 201 })
 })
+
+export async function GET(req: NextRequest) {
+  return guardedGET(req, { params: {} })
+}
+
+export async function POST(req: NextRequest) {
+  return guardedPOST(req, { params: {} })
+}

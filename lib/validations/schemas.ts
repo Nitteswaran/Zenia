@@ -232,6 +232,7 @@ export const campaignSchema = z.object({
     .min(1, 'Campaign name is required')
     .max(200, 'Name must be less than 200 characters'),
   description: z.string().max(1000).optional().or(z.literal('')),
+  status: z.enum(['DRAFT', 'ACTIVE', 'PAUSED', 'COMPLETED', 'ARCHIVED']).optional(),
   type: z.enum(['EMAIL', 'SOCIAL', 'CONTENT', 'SEO', 'PAID', 'MULTI_CHANNEL']),
   goal: z.string().max(500).optional().or(z.literal('')),
   startDate: z.coerce.date().optional(),

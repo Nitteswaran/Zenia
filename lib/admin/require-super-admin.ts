@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma"
  * Returns the dbUser on success, or a Response on failure.
  */
 export async function requireSuperAdmin(): Promise<
-  { ok: true; dbUser: Awaited<ReturnType<typeof getSuperAdminUser>> } |
+  { ok: true; dbUser: NonNullable<Awaited<ReturnType<typeof getSuperAdminUser>>> } |
   { ok: false; response: Response }
 > {
   const authUser = await getAuthUser()
