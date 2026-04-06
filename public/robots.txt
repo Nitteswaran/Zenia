@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /pricing
+Allow: /about
+Allow: /blog
+
+# Block all API routes from indexing
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /settings/
+Disallow: /login
+Disallow: /signup
+Disallow: /forgot-password
+Disallow: /reset-password
+
+Sitemap: https://zenia.ai/sitemap.xml

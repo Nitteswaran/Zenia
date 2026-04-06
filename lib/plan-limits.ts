@@ -1,0 +1,60 @@
+export const PLAN_LIMITS = {
+  FREE: {
+    credits: 25,
+    content: 20,
+    social: 2,
+    contacts: 250,
+    companies: 50,
+    campaigns: 1,
+    automations: 1,
+    seats: 1,
+    apiKeys: 0,
+  },
+  STARTER: {
+    credits: 200,
+    content: 200,
+    social: 5,
+    contacts: 2500,
+    companies: 500,
+    campaigns: 5,
+    automations: 5,
+    seats: 3,
+    apiKeys: 2,
+  },
+  GROWTH: {
+    credits: 1000,
+    content: -1, // unlimited
+    social: 15,
+    contacts: 25000,
+    companies: 5000,
+    campaigns: 25,
+    automations: 25,
+    seats: 10,
+    apiKeys: 5,
+  },
+  BUSINESS: {
+    credits: 5000,
+    content: -1,
+    social: 50,
+    contacts: 100000,
+    companies: -1,
+    campaigns: -1,
+    automations: -1,
+    seats: 50,
+    apiKeys: 10,
+  },
+  ENTERPRISE: {
+    credits: -1,
+    content: -1,
+    social: -1,
+    contacts: -1,
+    companies: -1,
+    campaigns: -1,
+    automations: -1,
+    seats: -1,
+    apiKeys: -1,
+  },
+} as const
+
+export type PlanKey = keyof typeof PLAN_LIMITS
+export type PlanName = PlanKey
