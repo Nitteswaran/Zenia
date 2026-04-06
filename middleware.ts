@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { createSupabaseMiddlewareClient } from "@/lib/supabase/middleware"
 import { Ratelimit } from "@upstash/ratelimit"
-import { Redis } from "@upstash/redis"
+import { Redis } from "@upstash/redis/cloudflare"
 
 // ── Route classification ──────────────────────────────────────────────────────
 
