@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma"
-import { resend } from "@/lib/resend"
+import { getResend } from "@/lib/resend"
 import type { AutomationStep, AutomationRunContext } from "@/types"
 
 /**
@@ -91,7 +91,7 @@ async function executeStep(
       const to = resolve(cfg.to)
       const subject = resolve(cfg.subject)
       const html = resolve(cfg.html ?? `<p>${cfg.subject}</p>`)
-      await resend.emails.send({
+      await getResend().emails.send({
         from: process.env.EMAIL_FROM ?? "Zenia <noreply@zenia.ai>",
         to,
         subject,

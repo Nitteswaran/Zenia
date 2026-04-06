@@ -1,12 +1,10 @@
 import { Resend } from "resend"
 
-function requiredEnv(name: string): string {
-  const value = process.env[name]
-  if (!value) throw new Error(`Missing environment variable: ${name}`)
-  return value
+export function getResend(): Resend {
+  const key = process.env.RESEND_API_KEY
+  if (!key) throw new Error("Missing environment variable: RESEND_API_KEY")
+  return new Resend(key)
 }
-
-export const resend = new Resend(requiredEnv("RESEND_API_KEY"))
 
 export const resendFromEmail = process.env.RESEND_FROM_EMAIL
 export const resendFromName = process.env.RESEND_FROM_NAME

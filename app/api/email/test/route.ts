@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server"
 import { z } from "zod"
 import { getAuthUser } from "@/lib/supabase/server"
-import { resend, resendFromEmail, resendFromName } from "@/lib/resend"
+import { getResend, resendFromEmail, resendFromName } from "@/lib/resend"
 
 export const runtime = "nodejs"
 
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     const fromName = resendFromName?.trim()
     const from = fromName ? `${fromName} <${fromEmail}>` : fromEmail
 
-    const result = await resend.emails.send({
+    const result = await getResend().emails.send({
       from,
       to,
       subject: parsed.data.subject ?? "Hello World",
