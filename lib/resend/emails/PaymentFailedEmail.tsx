@@ -25,9 +25,9 @@ export function PaymentFailedEmail({ name, amount, updatePaymentUrl }: PaymentFa
               Payment failed, {name}.
             </Text>
             <Text style={{ color: "#737373", fontSize: 16, lineHeight: 1.6, margin: "0 0 32px" }}>
-              We couldn't process your payment of <strong style={{ color: "#FAFAFA" }}>{amount}</strong>.
+              We couldn&apos;t process your payment of <strong style={{ color: "#FAFAFA" }}>{amount}</strong>.
               Please update your payment method to avoid interruption to your Zenia workspace.
-              Your account will be downgraded to the Free plan if payment isn't resolved within 7 days.
+              Your account will be downgraded to the Free plan if payment isn&apos;t resolved within 7 days.
             </Text>
           </Section>
 

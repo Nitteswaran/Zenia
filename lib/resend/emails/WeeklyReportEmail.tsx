@@ -79,7 +79,7 @@ export function WeeklyReportEmail({
 
           <Hr style={{ borderColor: "#262626", margin: "32px 0" }} />
           <Text style={{ color: "#737373", fontSize: 12, margin: 0 }}>
-            You're receiving this because weekly reports are enabled in your notification settings.{" "}
+            You&apos;re receiving this because weekly reports are enabled in your notification settings.{" "}
             <a href={`${dashboardUrl.replace("/dashboard", "/settings")}`} style={{ color: "#FF3D00", textDecoration: "none" }}>
               Manage preferences
             </a>

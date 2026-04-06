@@ -21,7 +21,7 @@ export function InviteEmail({ inviteeName, inviterName, workspaceName, role, inv
 
           <Section>
             <Text style={{ color: "#FAFAFA", fontSize: 24, fontWeight: 700, letterSpacing: "-0.04em", margin: "0 0 16px" }}>
-              You've been invited.
+              You&apos;ve been invited.
             </Text>
             <Text style={{ color: "#737373", fontSize: 16, lineHeight: 1.6, margin: "0 0 8px" }}>
               <strong style={{ color: "#FAFAFA" }}>{inviterName}</strong> invited you to join{" "}
@@ -56,7 +56,7 @@ export function InviteEmail({ inviteeName, inviterName, workspaceName, role, inv
 
           <Hr style={{ borderColor: "#262626", margin: "32px 0" }} />
           <Text style={{ color: "#737373", fontSize: 12, margin: 0 }}>
-            This invitation expires in 7 days. If you didn't expect this email, you can safely ignore it.
+            This invitation expires in 7 days. If you didn&apos;t expect this email, you can safely ignore it.
           </Text>
           <Text style={{ color: "#737373", fontSize: 12, margin: "16px 0 0" }}>
             © {new Date().getFullYear()} Zenia ·{" "}

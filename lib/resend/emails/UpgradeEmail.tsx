@@ -19,7 +19,7 @@ export function UpgradeEmail({ name, newPlan, dashboardUrl }: UpgradeEmailProps)
 
           <Section>
             <Text style={{ color: "#FAFAFA", fontSize: 24, fontWeight: 700, letterSpacing: "-0.04em", margin: "0 0 16px" }}>
-              You're on {newPlan}, {name}.
+              You&apos;re on {newPlan}, {name}.
             </Text>
             <Text style={{ color: "#737373", fontSize: 16, lineHeight: 1.6, margin: "0 0 32px" }}>
               Your Zenia workspace has been upgraded to <strong style={{ color: "#FAFAFA" }}>{newPlan}</strong>.

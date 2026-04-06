@@ -78,7 +78,7 @@ export default function ApiKeysPage() {
         <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">Settings</p>
         <h1 className="text-3xl font-display font-bold tracking-tight">API Keys</h1>
         <p className="text-sm text-muted-foreground mt-2">
-          Generate API keys to access Zenia's REST API. Keys are hashed — show once on creation.
+          Generate API keys to access Zenia&apos;s REST API. Keys are hashed — show once on creation.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default function ApiKeysPage() {
             <Key className="h-4 w-4 text-accent" strokeWidth={1.5} />
             <p className="text-sm font-medium">Key created: <span className="font-mono">{justCreated.name}</span></p>
           </div>
-          <p className="text-xs text-muted-foreground">Copy this key now. You won't be able to see it again.</p>
+          <p className="text-xs text-muted-foreground">Copy this key now. You won&apos;t be able to see it again.</p>
           <div className="flex items-center gap-3">
             <code className="flex-1 bg-muted border border-border px-3 py-2 text-xs font-mono overflow-x-auto">
               {showKey ? justCreated.key : "•".repeat(60)}
@@ -102,7 +102,7 @@ export default function ApiKeysPage() {
             </button>
           </div>
           <button onClick={() => setJustCreated(null)} className="text-xs text-muted-foreground hover:text-foreground font-mono underline">
-            I've saved it, dismiss
+            I&apos;ve saved it, dismiss
           </button>
         </div>
       )}

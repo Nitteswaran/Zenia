@@ -32,7 +32,7 @@ export function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div key={t.author} className="bg-background p-8">
               <blockquote className="text-base leading-relaxed mb-6 font-display italic text-muted-foreground">
-                "{t.quote}"
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
               <div>
                 <p className="font-medium text-sm">{t.author}</p>
